@@ -1,402 +1,284 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Master Oros v5.6 ✅ Fórmulas Verificadas + Value Bets</title>
-
+<title>Master Oros — Simulador Tenis Pro</title>
 <style>
-:root{
- --bg:#f4f6f8;--card:#fff;--text:#17202a;--muted:#667085;
- --line:#d9dee5;--accent:#1769aa;--ok:#16803c;--bad:#b42318;--purple:#6941c6;--value:#0d9488
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-.wrap{max-width:1200px;margin:0 auto;padding:16px}
-header{text-align:center;margin-bottom:20px}
-h1{margin:0;font-size:1.4rem;color:var(--accent)}
-.subtitle{color:var(--muted);font-size:0.9rem;margin-top:4px}
-.estado-carga{padding:10px;border-radius:8px;margin:10px 0;font-weight:500}
-.estado-ok{background:#e6f4ea;color:var(--ok)}
-.estado-error{background:#fce8e6;color:var(--bad)}
-.panel{background:var(--card);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,0,0,.06)}
-.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.field{margin-bottom:12px;position:relative}
-label{display:block;font-weight:600;margin-bottom:4px;font-size:0.9rem;color:var(--text)}
-input,select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:0.95rem;background:#fff}
-button{padding:12px 16px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:transform .1s}
-button:active{transform:scale(.97)}
-.btn-primary{background:var(--accent);color:#fff;width:100%}
-.result-block{margin-top:16px;padding:16px;border-radius:10px;background:#eef6ff}
-.match-row{display:flex;justify-content:space-between;align-items:center;font-size:1.1rem;font-weight:bold;margin:8px 0}
-.prob-bar{height:10px;border-radius:5px;background:#eee;overflow:hidden;margin:4px 0}
-.prob-fill{height:100%;border-radius:5px}
-.local-bar{background:var(--accent)}
-.visit-bar{background:var(--purple)}
-.hidden{display:none !important}
-.autocomplete-list{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 8px 8px;max-height:240px;overflow-y:auto;z-index:100;box-shadow:0 4px 8px rgba(0,0,0,.1)}
-.autocomplete-item{padding:10px 14px;cursor:pointer;border-bottom:1px solid #f0f0f0}
-.autocomplete-item:hover{background:#eef6ff}
-.campos-info{margin-top:10px;padding:10px;background:#f8f9fa;border-radius:8px;font-size:0.85rem;color:var(--muted)}
-.datos-cargados{margin-top:16px}
-.formulas-verificadas{margin-top:12px;font-size:0.78rem;color:#555;background:#f0f4f8;padding:8px;border-radius:6px}
-.value-box{margin-top:12px;padding:12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:0.9rem;color:#166534}
+:root{--bg:#f4f6f8;--card:#fff;--text:#17202a;--muted:#667085;--line:#d9dee5;--accent:#1769aa;--ok:#16803c;--bad:#b42318;--purple:#6941c6;--value:#0d9488;--warn:#b54708}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.wrap{max-width:1200px;margin:0 auto;padding:16px}header{text-align:center;margin-bottom:20px}h1{margin:0;font-size:1.4rem;color:var(--accent)}.subtitle{color:var(--muted);font-size:.9rem;margin-top:4px}.estado-carga{padding:10px;border-radius:8px;margin:10px 0;font-weight:500}.estado-ok{background:#e6f4ea;color:var(--ok)}.estado-error{background:#fce8e6;color:var(--bad)}.estado-warn{background:#fff7ed;color:var(--warn)}.panel{background:var(--card);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,0,0,.06)}.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.field{margin-bottom:12px;position:relative}label{display:block;font-weight:600;margin-bottom:4px;font-size:.9rem;color:var(--text)}input,select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:.95rem;background:#fff}button{padding:12px 16px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:transform .1s}button:active{transform:scale(.97)}.btn-primary{background:var(--accent);color:#fff;width:100%}.btn-secondary{background:#eef2f6;color:#17202a;width:100%;margin-top:8px}.result-block{margin-top:16px;padding:16px;border-radius:10px;background:#eef6ff}.match-row{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:1.1rem;font-weight:bold;margin:8px 0}.prob-bar{height:14px;border-radius:7px;background:#eee;overflow:hidden;margin:5px 0;display:flex}.prob-fill{height:100%;transition:width .4s}.local-bar{background:var(--accent)}.visit-bar{background:var(--purple)}.hidden{display:none!important}.autocomplete-list{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 8px 8px;max-height:300px;overflow-y:auto;z-index:100;box-shadow:0 4px 8px rgba(0,0,0,.1)}.autocomplete-item{padding:10px 14px;cursor:pointer;border-bottom:1px solid #f0f0f0}.autocomplete-item:hover{background:#eef6ff}.campos-info{margin-top:10px;padding:10px;background:#f8f9fa;border-radius:8px;font-size:.85rem;color:var(--muted)}.datos-cargados{margin-top:16px}.formulas-verificadas{margin-top:12px;font-size:.78rem;color:#555;background:#f0f4f8;padding:10px;border-radius:6px;line-height:1.5}.value-box{margin-top:12px;padding:12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:.9rem;color:#166534}.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:10px}.stat-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px;text-align:center}.stat-card small{display:block;color:var(--muted);font-size:.72rem}.stat-card strong{font-size:1rem}.mini{font-size:.78rem;color:var(--muted)}.winner{font-size:1.15rem;font-weight:700;margin-top:10px}.quality{margin-top:10px;padding:10px;border-radius:8px;background:#f8f9fa;font-size:.82rem}.tag{display:inline-block;padding:3px 7px;border-radius:999px;background:#eaf2fb;margin:2px 3px 2px 0}.diag{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.76rem;white-space:pre-wrap;word-break:break-word;background:#111827;color:#e5e7eb;padding:10px;border-radius:8px;margin-top:10px}.muted{color:var(--muted)}
+
+.bet-panel{margin-top:14px;padding:14px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.bet-title{font-size:1.05rem;font-weight:800;margin-bottom:6px}
+.bet-note{font-size:.78rem;color:var(--muted);line-height:1.45;margin-bottom:10px}
+.bet-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.bet-table th,.bet-table td{padding:8px 6px;border-bottom:1px solid #edf0f3;text-align:left;vertical-align:middle}
+.bet-table th{font-size:.72rem;color:var(--muted);text-transform:uppercase}
+.bet-green{color:#087f3d;font-weight:800}.bet-yellow{color:#b45309;font-weight:800}.bet-red{color:#b42318;font-weight:800}
+.bet-badge{display:inline-block;padding:3px 7px;border-radius:999px;font-size:.7rem;font-weight:800}
+.bet-badge.green{background:#dcfce7;color:#166534}.bet-badge.yellow{background:#fef3c7;color:#92400e}.bet-badge.red{background:#fee2e2;color:#991b1b}
+.bet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-top:10px}
+.bet-card{border:1px solid var(--line);border-radius:8px;padding:10px;background:#fff}
+.bet-card strong{display:block;margin-bottom:4px}.fair{color:var(--muted);font-size:.76rem}.best-bet{border-left:4px solid var(--ok);background:#f0fdf4}
+@media(max-width:600px){.bet-table{font-size:.75rem}.bet-table th,.bet-table td{padding:7px 4px}}
 </style>
 </head>
 <body>
-
 <div class="wrap">
 <header>
- <h1>🎾 Master Oros — Simulador Tenis</h1>
- <p class="subtitle">Fórmulas verificadas • Base: 000tenis varonil / 00tenis femenil</p>
- <div id="estado-carga" class="estado-carga">🔄 Conectando con tu base de datos...</div>
+<h1>🎾 Master Oros — Simulador Tenis Pro</h1>
+<p class="subtitle">Elo + Superficie + Servicio + Retorno + Forma + Monte Carlo de juegos/sets</p>
+<div id="estado-carga" class="estado-carga">🔄 Conectando con tu base de datos...</div>
 </header>
 
 <div class="panel">
- <div class="field">
-  <label>Categoría</label>
-  <select id="cat" onchange="cambiarCat()">
-   <option value="men">🎾 000tenis varonil</option>
-   <option value="women">🎾 00tenis femenil</option>
-  </select>
- </div>
+<div class="row">
+<div class="field"><label>Categoría</label><select id="cat"><option value="men">🎾 Tenis varonil</option><option value="women">🎾 Tenis femenil</option></select></div>
+<div class="field"><label>Superficie del partido</label><select id="sup"><option value="hard">Pista Dura</option><option value="clay">Arcilla</option><option value="grass">Césped</option><option value="indoor">Indoor</option></select></div>
 </div>
-
-<!-- JUGADOR LOCAL -->
-<div class="panel">
- <h3>🏠 Jugador Local</h3>
- <div class="field">
-  <label>Buscar jugador</label>
-  <input type="text" id="local-busca" placeholder="Escribe nombre o apellido..." oninput="buscar('local')" autocomplete="off">
-  <div id="local-lista" class="autocomplete-list hidden"></div>
- </div>
- <div class="campos-info">
-  📋 El bot rellenará: Posición, Nombre, Elo, % Dura, % Arcilla, % Césped, Saques, Hold, Break, Resto, Forma
- </div>
- <div id="local-datos" class="datos-cargados hidden">
-  <div class="row">
-   <div class="field"><label>Posición</label><input type="text" id="local-pos" readonly></div>
-   <div class="field"><label>Elo</label><input type="text" id="local-el" readonly></div>
-  </div>
-  <div class="row">
-   <div class="field"><label>% Dura</label><input type="text" id="local-hd" readonly></div>
-   <div class="field"><label>% Arcilla</label><input type="text" id="local-cl" readonly></div>
-   <div class="field"><label>% Césped</label><input type="text" id="local-gr" readonly></div>
-  </div>
-  <div class="row">
-   <div class="field"><label>1er Saque %</label><input type="text" id="local-s1" readonly></div>
-   <div class="field"><label>2do Saque %</label><input type="text" id="local-s2" readonly></div>
-  </div>
-  <div class="row">
-   <div class="field"><label>Hold %</label><input type="text" id="local-ho" readonly></div>
-   <div class="field"><label>Break %</label><input type="text" id="local-br" readonly></div>
-   <div class="field"><label>Resto %</label><input type="text" id="local-re" readonly></div>
-  </div>
-  <div class="field"><label>Forma %</label><input type="text" id="local-fm" readonly></div>
- </div>
- <div id="local-est" class="estado-carga hidden"></div>
-</div>
-
-<!-- JUGADOR VISITANTE -->
-<div class="panel">
- <h3>✈️ Jugador Visitante</h3>
- <div class="field">
-  <label>Buscar jugador</label>
-  <input type="text" id="away-busca" placeholder="Escribe nombre o apellido..." oninput="buscar('away')" autocomplete="off">
-  <div id="away-lista" class="autocomplete-list hidden"></div>
- </div>
- <div class="campos-info">
-  📋 El bot rellenará: Posición, Nombre, Elo, % Dura, % Arcilla, % Césped, Saques, Hold, Break, Resto, Forma
- </div>
- <div id="away-datos" class="datos-cargados hidden">
-  <div class="row">
-   <div class="field"><label>Posición</label><input type="text" id="away-pos" readonly></div>
-   <div class="field"><label>Elo</label><input type="text" id="away-el" readonly></div>
-  </div>
-  <div class="row">
-   <div class="field"><label>% Dura</label><input type="text" id="away-hd" readonly></div>
-   <div class="field"><label>% Arcilla</label><input type="text" id="away-cl" readonly></div>
-   <div class="field"><label>% Césped</label><input type="text" id="away-gr" readonly></div>
-  </div>
-  <div class="row">
-   <div class="field"><label>1er Saque %</label><input type="text" id="away-s1" readonly></div>
-   <div class="field"><label>2do Saque %</label><input type="text" id="away-s2" readonly></div>
-  </div>
-  <div class="row">
-   <div class="field"><label>Hold %</label><input type="text" id="away-ho" readonly></div>
-   <div class="field"><label>Break %</label><input type="text" id="away-br" readonly></div>
-   <div class="field"><label>Resto %</label><input type="text" id="away-re" readonly></div>
-  </div>
-  <div class="field"><label>Forma %</label><input type="text" id="away-fm" readonly></div>
- </div>
- <div id="away-est" class="estado-carga hidden"></div>
+<div id="estado-categoria" class="mini"></div>
+<button id="recargar" class="btn-secondary">🔄 Recargar base de Google Sheets</button>
+<div id="diagnostico" class="diag hidden"></div>
 </div>
 
 <div class="panel">
- <div class="row">
-  <div class="field">
-   <label>Superficie del partido</label>
-   <select id="sup">
-    <option value="hard">Pista Dura</option>
-    <option value="clay">Arcilla</option>
-    <option value="grass">Césped</option>
-   </select>
-  </div>
- </div>
- <div class="row" style="margin-top:10px">
-  <div class="field">
-   <label>Cuota Casa (Local) — Opcional</label>
-   <input type="number" id="cuota-local" step="0.01" placeholder="Ej. 1.75">
-  </div>
-  <div class="field">
-   <label>Cuota Casa (Visitante) — Opcional</label>
-   <input type="number" id="cuota-away" step="0.01" placeholder="Ej. 2.10">
-  </div>
- </div>
+<h3>🏠 Jugador Local</h3>
+<div class="field"><label>Buscar jugador</label><input type="text" id="local-busca" placeholder="Escribe nombre o apellido..." autocomplete="off"><div id="local-lista" class="autocomplete-list hidden"></div></div>
+<div class="campos-info">📋 Datos: Ranking, Elo, superficie, 1er saque, 2º saque, Hold, Break, Resto y Forma.</div>
+<div id="local-datos" class="datos-cargados hidden">
+<div class="row"><div class="field"><label>Posición</label><input id="local-pos" readonly></div><div class="field"><label>Ranking</label><input id="local-ranking" readonly></div><div class="field"><label>Elo</label><input id="local-el" readonly></div></div>
+<div class="row"><div class="field"><label>% Dura</label><input id="local-hd" readonly></div><div class="field"><label>% Arcilla</label><input id="local-cl" readonly></div><div class="field"><label>% Césped</label><input id="local-gr" readonly></div><div class="field"><label>% Indoor</label><input id="local-in" readonly></div></div>
+<div class="row"><div class="field"><label>1er Saque Ganado %</label><input id="local-s1" readonly></div><div class="field"><label>2º Saque Ganado %</label><input id="local-s2" readonly></div><div class="field"><label>Hold %</label><input id="local-ho" readonly></div></div>
+<div class="row"><div class="field"><label>Break %</label><input id="local-br" readonly></div><div class="field"><label>Resto %</label><input id="local-re" readonly></div><div class="field"><label>Forma %</label><input id="local-fm" readonly></div></div>
+</div><div id="local-est" class="estado-carga hidden"></div>
 </div>
 
-<button class="btn-primary" onclick="simular()" style="font-size:1.1rem;padding:16px">🎾 Ejecutar Simulación</button>
+<div class="panel">
+<h3>✈️ Jugador Visitante</h3>
+<div class="field"><label>Buscar jugador</label><input type="text" id="away-busca" placeholder="Escribe nombre o apellido..." autocomplete="off"><div id="away-lista" class="autocomplete-list hidden"></div></div>
+<div class="campos-info">📋 Datos: Ranking, Elo, superficie, 1er saque, 2º saque, Hold, Break, Resto y Forma.</div>
+<div id="away-datos" class="datos-cargados hidden">
+<div class="row"><div class="field"><label>Posición</label><input id="away-pos" readonly></div><div class="field"><label>Ranking</label><input id="away-ranking" readonly></div><div class="field"><label>Elo</label><input id="away-el" readonly></div></div>
+<div class="row"><div class="field"><label>% Dura</label><input id="away-hd" readonly></div><div class="field"><label>% Arcilla</label><input id="away-cl" readonly></div><div class="field"><label>% Césped</label><input id="away-gr" readonly></div><div class="field"><label>% Indoor</label><input id="away-in" readonly></div></div>
+<div class="row"><div class="field"><label>1er Saque Ganado %</label><input id="away-s1" readonly></div><div class="field"><label>2º Saque Ganado %</label><input id="away-s2" readonly></div><div class="field"><label>Hold %</label><input id="away-ho" readonly></div></div>
+<div class="row"><div class="field"><label>Break %</label><input id="away-br" readonly></div><div class="field"><label>Resto %</label><input id="away-re" readonly></div><div class="field"><label>Forma %</label><input id="away-fm" readonly></div></div>
+</div><div id="away-est" class="estado-carga hidden"></div>
+</div>
+
+<div class="panel">
+<div class="row"><div class="field"><label>Cuota Local — Opcional</label><input type="number" id="cuota-local" step="0.01" min="1.01" placeholder="Ej. 1.75"></div><div class="field"><label>Cuota Visitante — Opcional</label><input type="number" id="cuota-away" step="0.01" min="1.01" placeholder="Ej. 2.10"></div></div>
+</div>
+
+<button id="simular" class="btn-primary" style="font-size:1.1rem;padding:16px">🎾 Ejecutar Simulación</button>
 
 <div id="res" class="result-block hidden">
- <h3 style="margin-top:0">📊 Resultado de la Simulación</h3>
- <div class="match-row">
-  <span id="r-l">Local</span>
-  <span id="r-sc">-</span>
-  <span id="r-a">Visitante</span>
- </div>
- <div style="margin:12px 0">
-  <div style="display:flex;justify-content:space-between;font-size:0.9rem">
-   <span id="p-l">50%</span><span>Probabilidad de Victoria</span><span id="p-a">50%</span>
-  </div>
-  <div class="prob-bar">
-   <div id="b-l" class="prob-fill local-bar" style="width:50%"></div>
-   <div id="b-a" class="prob-fill visit-bar" style="width:50%"></div>
-  </div>
- </div>
- <div id="det" style="margin-top:12px;font-size:0.9rem;line-height:1.6"></div>
- <div id="value-container"></div>
- <div class="formulas-verificadas">
-  ✅ Fórmulas verificadas: Elo + Superficie + Forma + Saque/Resto • Rango: 5%–95% • Mejor de 3 sets
- </div>
-</div>
+<h3 style="margin-top:0">📊 Resultado de la Simulación</h3>
+<div class="match-row"><span id="r-l">Local</span><span id="r-sc">-</span><span id="r-a">Visitante</span></div>
+<div style="margin:12px 0"><div style="display:flex;justify-content:space-between;font-size:.9rem"><span id="p-l">50%</span><span>Probabilidad de Victoria</span><span id="p-a">50%</span></div><div class="prob-bar"><div id="b-l" class="prob-fill local-bar" style="width:50%"></div><div id="b-a" class="prob-fill visit-bar" style="width:50%"></div></div></div>
+<div id="det" style="margin-top:12px;font-size:.9rem;line-height:1.6"></div>
+<div id="stats-match" class="stat-grid"></div>
+<div id="value-container"></div>
+<div id="betting-container" class="bet-panel hidden"></div>
 
+<div class="formulas-verificadas"><strong>🧠 Motor estadístico:</strong><br>• Elo como fuerza principal, sin doble contar Ranking cuando Elo está disponible<br>• Ajuste específico por superficie<br>• Forma reciente<br>• Servicio: 1er + 2º saque + Hold<br>• Retorno: Break + Resto del rival<br>• Monte Carlo de 10,000 partidos<br>• Juegos, sets al mejor de 3 y tie-break correcto<br>• Control de duplicados y datos faltantes<br>• Value Bet con EV y probabilidad implícita</div>
+</div>
 </div>
 
 <script>
-// ==============================================
-// TU ENLACE VERIFICADO
-// ==============================================
-const ID_HOJA = "1az9OgUjSFNfS6LJOQSvbv3UV3MSK8Y0B";
-const URLS = {
- men: `https://docs.google.com/spreadsheets/d/${ID_HOJA}/gviz/tq?tqx=out:csv&gid=0`,
- women: `https://docs.google.com/spreadsheets/d/${ID_HOJA}/gviz/tq?tqx=out:csv&gid=1`
+const ID_HOJA="1az9OgUjSFNfS6LJOQSvbv3UV3MSK8Y0B";
+const NOMBRES_HOJAS={
+ men:"000tenis varonil ",
+ women:"00tenis femenil "
 };
 
-let datos = { men: [], women: [] };
-let sel = { local: null, away: null };
+function urlHoja(tipo){
+ const sheet=encodeURIComponent(NOMBRES_HOJAS[tipo]);
+ return `https://docs.google.com/spreadsheets/d/${ID_HOJA}/gviz/tq?tqx=out:csv&sheet=${sheet}`;
+}
 
-// ==============================================
-// CARGA DE DATOS
-// ==============================================
-window.onload = async function(){
- const estado = document.getElementById('estado-carga');
- estado.textContent = "🔄 Conectando a tu base de datos...";
- estado.className = "estado-carga";
- 
- try{
-  await Promise.all([cargarHoja('men'), cargarHoja('women')]);
-  const total = datos.men.length + datos.women.length;
-  
-  if(total === 0){
-   estado.textContent = "⚠️ Se conectó pero no se leyeron filas. Verifica encabezados en fila 1.";
-   estado.className = "estado-carga estado-error";
+const URLS={
+ men:urlHoja("men"),
+ women:urlHoja("women")
+};
+const datos={men:[],women:[]};
+const meta={men:{raw:0,dedup:0,headers:[],duplicates:0},women:{raw:0,dedup:0,headers:[],duplicates:0}};
+const sel={local:null,away:null};
+const candidatos={local:[],away:[]};
+const $=id=>document.getElementById(id);
+
+function limpiar(v){return String(v??"").replace(/^\uFEFF/,"").trim();}
+
+
+function normalizar(v){return limpiar(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’'`´]/g,'').replace(/[^a-z0-9]+/g,'').trim();}
+function tokens(v){return limpiar(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’'`´]/g,"'").split(/[^a-z0-9]+/).filter(Boolean);}
+function numero(v){if(v===null||v===undefined||String(v).trim()==='')return null;let s=limpiar(v).replace(/%/g,'').replace(/\s/g,'');if(/^-?\d+,\d+$/.test(s))s=s.replace(',','.');else s=s.replace(/,/g,'');const n=Number(s);return Number.isFinite(n)?n:null;}
+function porcentaje(v){const n=numero(v);if(n===null)return null;return n>0&&n<=1?n*100:clamp(n,0,100);}
+function clamp(x,a,b){return Math.max(a,Math.min(b,x));}
+function logistic(x){return 1/(1+Math.exp(-x));}
+function logit(p){p=clamp(p,.0001,.9999);return Math.log(p/(1-p));}
+function escapeHTML(t){return String(t??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');}
+
+function parseCSV(text){
+ const rows=[];let row=[];let field='';let quoted=false;
+ text=String(text||'').replace(/^\uFEFF/,'');
+ for(let i=0;i<text.length;i++){
+  const ch=text[i];
+  if(quoted){
+   if(ch==='"'){if(text[i+1]==='"'){field+='"';i++;}else quoted=false;}
+   else field+=ch;
   }else{
-   estado.textContent = `✅ CONECTADO — Varonil: ${datos.men.length} | Femenil: ${datos.women.length} | Total: ${total}`;
-   estado.className = "estado-carga estado-ok";
+   if(ch==='"')quoted=true;
+   else if(ch===','){row.push(field);field='';}
+   else if(ch==='\n'){row.push(field);field='';if(row.some(x=>String(x).trim()!==''))rows.push(row);row=[];}
+   else if(ch==='\r'){if(text[i+1]==='\n')i++;row.push(field);field='';if(row.some(x=>String(x).trim()!==''))rows.push(row);row=[];}
+   else field+=ch;
   }
- }catch(err){
-  estado.textContent = `❌ Error: ${err.message} → Abre tu hoja → Compartir → "Cualquiera con el enlace"`;
-  estado.className = "estado-carga estado-error";
  }
+ if(field!==''||row.length){row.push(field);if(row.some(x=>String(x).trim()!==''))rows.push(row);}
+ return rows;
+}
+
+const ALIASES={
+ pos:['pos','posicion','posición'],nombre:['nombre','jugador','player','name'],ranking:['ranking','rank'],elo:['elo_general','elo general','el general','elo','elogleeneral','elogeneral'],
+ dura:['%dura','dura','hard','pistadura','hardcourt'],arcilla:['%arcilla','arcilla','clay'],cesped:['%césped','%cesped','césped','cesped','grass'],indoor:['%indoor','indoor'],
+ saque1:['1ersaqueganado%','1er saque ganado %','1ersaque','firstservewon','first serve won'],saque2:['2dosaqueganado%','2do saque ganado %','2º saque ganado %','2dosaque','secondservewon','second serve won'],
+ hold:['hold%','hold'],brk:['break%','break'],resto:['restoganado%','resto ganado %','resto','returnwon','return won'],forma:['formareciente%','forma reciente %','forma','recentform','recent form']
 };
+function headerKey(h){return normalizar(h).replace(/[^a-z0-9]/g,'');}
+function findCol(headers,aliases){
+ const hs=headers.map(headerKey);
+ for(const a of aliases){const k=headerKey(a);const i=hs.indexOf(k);if(i>=0)return i;}
+ return -1;
+}
+function completeness(j){return ['elo','dura','arcilla','cesped','indoor','saque1','saque2','hold','brk','resto','forma'].reduce((n,k)=>n+(j[k]!==null?1:0),0);}
+function playerFromRow(c,col){
+ const nombre=limpiar(col.nombre>=0?c[col.nombre]:'');
+ if(nombre.length<2)return null;
+ return {nombre,buscar:normalizar(nombre),tokens:tokens(nombre),pos:numero(col.pos>=0?c[col.pos]:null),ranking:numero(col.ranking>=0?c[col.ranking]:null),elo:numero(col.elo>=0?c[col.elo]:null),dura:porcentaje(col.dura>=0?c[col.dura]:null),arcilla:porcentaje(col.arcilla>=0?c[col.arcilla]:null),cesped:porcentaje(col.cesped>=0?c[col.cesped]:null),indoor:porcentaje(col.indoor>=0?c[col.indoor]:null),saque1:porcentaje(col.saque1>=0?c[col.saque1]:null),saque2:porcentaje(col.saque2>=0?c[col.saque2]:null),hold:porcentaje(col.hold>=0?c[col.hold]:null),brk:porcentaje(col.brk>=0?c[col.brk]:null),resto:porcentaje(col.resto>=0?c[col.resto]:null),forma:porcentaje(col.forma>=0?c[col.forma]:null)};
+}
+function elegirMejor(a,b){
+ const ca=completeness(a),cb=completeness(b);if(cb>ca)return b;if(ca>cb)return a;
+ const ra=a.ranking??9999,rb=b.ranking??9999;if(rb<ra)return b;if(ra<rb)return a;
+ const ea=a.elo??-Infinity,eb=b.elo??-Infinity;return eb>ea?b:a;
+}
+function procesarCSV(texto,tipo){
+ const rows=parseCSV(texto);if(rows.length<2)throw new Error(`${tipo}: CSV sin filas suficientes`);
+ const headers=rows[0].map(limpiar);const col={};for(const k of Object.keys(ALIASES))col[k]=findCol(headers,ALIASES[k]);
+ if(col.nombre<0)throw new Error(`${tipo}: no se encontró la columna Nombre`);
+ const jugadores=[];for(let i=1;i<rows.length;i++){const j=playerFromRow(rows[i],col);if(j)jugadores.push(j);}
+ const mapa=new Map();let duplicates=0;
+ for(const j of jugadores){const key=j.buscar;if(mapa.has(key)){duplicates++;mapa.set(key,elegirMejor(mapa.get(key),j));}else mapa.set(key,j);}
+ const out=[...mapa.values()].sort((a,b)=>(a.ranking??9999)-(b.ranking??9999));
+ meta[tipo]={raw:jugadores.length,dedup:out.length,headers,duplicates,missing:Object.entries(col).filter(([,i])=>i<0).map(([k])=>k)};
+ return out;
+}
 
 async function cargarHoja(tipo){
- try{
-  const res = await fetch(URLS[tipo]);
-  if(!res.ok) throw new Error(`Sin acceso (${res.status})`);
-  datos[tipo] = procesarCSV(await res.text());
- }catch(e){throw e;}
+ const url=URLS[tipo]+`&cache=${Date.now()}`;const res=await fetch(url,{cache:'no-store',headers:{'Accept':'text/csv'}});if(!res.ok)throw new Error(`${tipo}: HTTP ${res.status}`);const texto=await res.text();if(!texto.trim()||/^\s*</.test(texto))throw new Error(`${tipo}: Google Sheets no devolvió CSV`);datos[tipo]=procesarCSV(texto,tipo);}
+
+async function iniciar(){
+ const estado=$('estado-carga');estado.textContent='🔄 Conectando con las dos bases...';estado.className='estado-carga';
+ const rs=await Promise.allSettled([cargarHoja('men'),cargarHoja('women')]);const errores=[];rs.forEach((r,i)=>{if(r.status==='rejected')errores.push(i===0?'Varonil':'Femenil');});
+ const total=datos.men.length+datos.women.length;
+ if(total===0){estado.textContent='❌ No se pudieron cargar las bases.';estado.className='estado-carga estado-error';}
+ else{estado.textContent=`${errores.length?'⚠️':'✅'} BASE CONECTADA — Varonil: ${datos.men.length} | Femenil: ${datos.women.length}`;estado.className=`estado-carga ${errores.length?'estado-warn':'estado-ok'}`;if(errores.length)estado.textContent+=` | Error en: ${errores.join(', ')}`;}
+ actualizarEstadoCategoria();mostrarDiagnostico();
 }
+function actualizarEstadoCategoria(){const cat=$('cat').value;const m=meta[cat];$('estado-categoria').textContent=`Base seleccionada: ${cat==='men'?'🎾 Varonil':'🎾 Femenil'} — ${datos[cat].length} jugadores únicos cargados${m.raw?` (${m.raw} filas, ${m.duplicates} duplicadas controladas)`:''}.`;}
+function mostrarDiagnostico(){const d=$('diagnostico');const cat=$('cat').value;const m=meta[cat];if(!m.raw){d.classList.add('hidden');return;}d.classList.remove('hidden');const primeros=datos[cat].slice(0,8).map(j=>j.nombre).join(' | ');d.textContent=`Diagnóstico ${cat==='men'?'varonil':'femenil'}\nFilas válidas: ${m.raw}\nJugadores únicos: ${m.dedup}\nDuplicados controlados: ${m.duplicates}\nColumnas faltantes: ${m.missing.length?m.missing.join(', '):'ninguna'}\nPrimeros jugadores: ${primeros}`;}
 
-function procesarCSV(texto){
- const lineas = texto.trim().split('\n');
- if(lineas.length < 2) return [];
- const enc = lineas[0].split(',').map(h => h.trim().toLowerCase().replace(/"/g,''));
- 
- const col = {
-  nombre: enc.findIndex(h => h.includes('nombre') || h.includes('jugador')),
-  pos: enc.findIndex(h => h.includes('pos') || h.includes('rank') || h === '#'),
-  elo: enc.findIndex(h => h.includes('elo')),
-  dura: enc.findIndex(h => h.includes('dura') || h.includes('pista dura')),
-  arcilla: enc.findIndex(h => h.includes('arcilla')),
-  cesped: enc.findIndex(h => h.includes('césped') || h.includes('cesped')),
-  saque1: enc.findIndex(h => h.includes('1er') || h.includes('saque 1')),
-  saque2: enc.findIndex(h => h.includes('2do') || h.includes('saque 2')),
-  hold: enc.findIndex(h => h.includes('hold')),
-  brk: enc.findIndex(h => h.includes('break')),
-  resto: enc.findIndex(h => h.includes('resto') || h.includes('retorno')),
-  forma: enc.findIndex(h => h.includes('forma') || h.includes('reciente'))
- };
- 
- return lineas.slice(1).map(f => {
-  const c = f.split(',');
-  const nom = limpiar(c[col.nombre] || c[1] || c[0] || '');
-  if(nom.length < 2) return null;
-  return {
-   nombre: nom, buscar: normalizar(nom),
-   pos: num(c[col.pos]), elo: num(c[col.elo]),
-   dura: num(c[col.dura]), arcilla: num(c[col.arcilla]), cesped: num(c[col.cesped]),
-   saque1: num(c[col.saque1]), saque2: num(c[col.saque2]),
-   hold: num(c[col.hold]), brk: num(c[col.brk]), resto: num(c[col.resto]), forma: num(c[col.forma])
-  };
- }).filter(Boolean);
+function limpiarJugadorUI(lado){sel[lado]=null;candidatos[lado]=[];$(`${lado}-datos`).classList.add('hidden');$(`${lado}-est`).classList.add('hidden');$(`${lado}-lista`).classList.add('hidden');}
+function cambiarCat(){limpiarJugadorUI('local');limpiarJugadorUI('away');$('local-busca').value='';$('away-busca').value='';$('res').classList.add('hidden');actualizarEstadoCategoria();mostrarDiagnostico();}
+
+function scoreMatch(j,q){
+ const nq=normalizar(q);if(!nq)return -1;const name=j.buscar;const ts=j.tokens;
+ if(name===nq)return 10000;
+ let s=0;
+ if(name.startsWith(nq))s+=5000;
+ if(ts.some(t=>t===nq))s+=4500;
+ if(ts.some(t=>t.startsWith(nq)))s+=3500;
+ if(name.includes(nq))s+=2000;
+ if(ts.some(t=>t.includes(nq)))s+=1200;
+ s-=Math.max(0,name.length-nq.length);
+ return s;
 }
-
-function limpiar(t){return t.trim().replace(/^"|"$/g,'');}
-function normalizar(t){return limpiar(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
-function num(t){if(!t)return null;const v=limpiar(t).replace('%','');const n=Number(v);return isNaN(n)?null:n;}
-
-// ==============================================
-// BUSCAR Y SELECCIONAR
-// ==============================================
-function cambiarCat(){
- document.getElementById('local-busca').value='';document.getElementById('away-busca').value='';
- ocultar('local');ocultar('away');document.getElementById('res').classList.add('hidden');
-}
-function ocultar(lado){sel[lado]=null;document.querySelectorAll(`#${lado}-lista, #${lado}-datos, #${lado}-est`).forEach(e=>e.classList.add('hidden'));}
-
 function buscar(lado){
- const t=document.getElementById(`${lado}-busca`).value;
- const lista=document.getElementById(`${lado}-lista`);
- if(t.length<1){lista.classList.add('hidden');return;}
- const c=document.getElementById('cat').value;
- const coinc=datos[c].filter(j=>j.buscar.includes(normalizar(t))||j.nombre.toLowerCase().includes(t.toLowerCase())).slice(0,8);
- lista.innerHTML=coinc.length?coinc.map(j=>`<div class="autocomplete-item" onclick="elegir('${lado}',${JSON.stringify(j).replace(/"/g,'&quot;')})">${j.nombre} — #${j.pos||'?'} | Elo:${j.elo||'?'}</div>`).join(''):'<div class="autocomplete-item" style="color:#999">Sin coincidencias</div>';
+ const texto=$(`${lado}-busca`).value.trim();const lista=$(`${lado}-lista`);if(!texto){lista.classList.add('hidden');candidatos[lado]=[];return;}
+ const cat=$('cat').value;const q=normalizar(texto);const coincidencias=datos[cat].map(j=>({j,s:scoreMatch(j,q)})).filter(x=>x.s>=0).sort((a,b)=>b.s-a.s).slice(0,12).map(x=>x.j);candidatos[lado]=coincidencias;
+ if(!coincidencias.length){lista.innerHTML=`<div class="autocomplete-item muted">Sin coincidencias en ${cat==='women'?'tenis femenil':'tenis varonil'}.</div>`;}
+ else{lista.innerHTML=coincidencias.map((j,i)=>`<div class="autocomplete-item" data-lado="${lado}" data-index="${i}"><strong>${escapeHTML(j.nombre)}</strong> — ${j.ranking!==null?'#'+j.ranking:'#?'} | Elo: ${j.elo!==null?Math.round(j.elo):'?'}</div>`).join('');}
  lista.classList.remove('hidden');
 }
+function elegir(lado,index){const j=candidatos[lado][Number(index)];if(!j)return;sel[lado]=j;$(`${lado}-busca`).value=j.nombre;$(`${lado}-lista`).classList.add('hidden');ponerValor(`${lado}-pos`,j.pos);ponerValor(`${lado}-ranking`,j.ranking);ponerValor(`${lado}-el`,j.elo);[['hd','dura'],['cl','arcilla'],['gr','cesped'],['in','indoor'],['s1','saque1'],['s2','saque2'],['ho','hold'],['br','brk'],['re','resto'],['fm','forma']].forEach(([ui,k])=>ponerPorcentaje(`${lado}-${ui}`,j[k]));$(`${lado}-datos`).classList.remove('hidden');const faltantes=contarFaltantes(j);const e=$(`${lado}-est`);e.className=`estado-carga ${faltantes.length?'estado-warn':'estado-ok'}`;e.classList.remove('hidden');e.textContent=faltantes.length?`⚠️ ${j.nombre} cargado. Faltan: ${faltantes.join(', ')}`:`✅ ${j.nombre} cargado — datos completos.`;}
+function ponerValor(id,v){$(id).value=v!==null&&v!==undefined?v:'-';}
+function ponerPorcentaje(id,v){$(id).value=v!==null&&v!==undefined?Number(v).toFixed(1)+'%':'-';}
+function contarFaltantes(j){const map={Elo:'elo',Dura:'dura',Arcilla:'arcilla',Césped:'cesped',Indoor:'indoor','1er saque':'saque1','2º saque':'saque2',Hold:'hold',Break:'brk',Resto:'resto',Forma:'forma'};return Object.entries(map).filter(([,k])=>j[k]===null).map(([n])=>n);}
 
-document.addEventListener('click',e=>{if(!e.target.closest('.field'))document.querySelectorAll('.autocomplete-list').forEach(l=>l.classList.add('hidden'));});
+function valor(j,k,d=50){return Number.isFinite(j[k])?j[k]:d;}
+function superficie(j,s){return s==='hard'?valor(j,'dura'):s==='clay'?valor(j,'arcilla'):s==='grass'?valor(j,'cesped'):s==='indoor'?valor(j,'indoor'):50;}
+function indiceServicio(j){return valor(j,'saque1')*.60+valor(j,'saque2')*.40;}
+function holdFromPoint(p){const q=1-p;const before=Math.pow(p,4)*(1+4*q+10*q*q);const deuce=20*Math.pow(p,3)*Math.pow(q,3);const win=(p*p)/(p*p+q*q);return before+deuce*win;}
+function pointFromHold(h){h=clamp(h,.50,.97);let lo=.30,hi=.85;for(let i=0;i<60;i++){const mid=(lo+hi)/2;if(holdFromPoint(mid)<h)lo=mid;else hi=mid;}return (lo+hi)/2;}
 
-function elegir(lado,j){
- sel[lado]=j;document.getElementById(`${lado}-busca`).value=j.nombre;document.getElementById(`${lado}-lista`).classList.add('hidden');
- document.getElementById(`${lado}-pos`).value=j.pos??'-';
- document.getElementById(`${lado}-el`).value=j.elo??'-';
- document.getElementById(`${lado}-hd`).value=j.dura?j.dura+'%':'-';
- document.getElementById(`${lado}-cl`).value=j.arcilla?j.arcilla+'%':'-';
- document.getElementById(`${lado}-gr`).value=j.cesped?j.cesped+'%':'-';
- document.getElementById(`${lado}-s1`).value=j.saque1?j.saque1+'%':'-';
- document.getElementById(`${lado}-s2`).value=j.saque2?j.saque2+'%':'-';
- document.getElementById(`${lado}-ho`).value=j.hold?j.hold+'%':'-';
- document.getElementById(`${lado}-br`).value=j.brk?j.brk+'%':'-';
- document.getElementById(`${lado}-re`).value=j.resto?j.resto+'%':'-';
- document.getElementById(`${lado}-fm`).value=j.forma?j.forma+'%':'-';
- document.getElementById(`${lado}-datos`).classList.remove('hidden');
- const e=document.getElementById(`${lado}-est`);e.classList.remove('hidden');e.className='estado-carga estado-ok';e.textContent=`✅ ${j.nombre} cargado`;
+function calcularModelo(L,A,sup){
+ const eloL=L.elo??1500,eloA=A.elo??1500;const eLogit=Math.log(10)*(eloL-eloA)/400;
+ const surfL=superficie(L,sup),surfA=superficie(A,sup);const formL=valor(L,'forma'),formA=valor(A,'forma');
+ const serviceL=indiceServicio(L),serviceA=indiceServicio(A);const holdL=valor(L,'hold'),holdA=valor(A,'hold');const brL=valor(L,'brk'),brA=valor(A,'brk');const retL=valor(L,'resto'),retA=valor(A,'resto');
+ const surfaceLogit=.16*(surfL-surfA)/10;const formLogit=.08*(formL-formA)/10;const serviceReturnLogit=.10*((serviceL-serviceA)+(retL-retA))/20;const holdBreakLogit=.06*((holdL-holdA)+(brL-brA))/20;
+ const total=eLogit*.72+surfaceLogit+formLogit+serviceReturnLogit+holdBreakLogit;const p=clamp(logistic(total),.03,.97);
+ return {pL:p,pA:1-p,eloL,eloA,surfL,surfA,formL,formA,serviceL,serviceA,holdL,holdA,brL,brA,retL,retA,total};
+}
+function calcularHoldJuego(server,receiver,sup,modelo){
+ const ownHold=valor(server,'hold');const antiBreak=100-valor(receiver,'brk');const antiReturn=100-valor(receiver,'resto');const service=indiceServicio(server);const surface=superficie(server,sup);const point=holdFromPoint(pointFromHold(clamp(ownHold/100,.5,.95)))*100;
+ let h=ownHold*.46+antiBreak*.20+antiReturn*.12+service*.12+point*.10;
+ const matchEdge=(modelo.pL-.5)*100*(server===modelo.L?'1':'-1');
+ h+=matchEdge*.10+(surface-(server===modelo.L?modelo.surfA:modelo.surfL))*.03;
+ return clamp(h/100,.50,.94);
 }
 
-// ==============================================
-// SIMULACIÓN — FÓRMULAS MEJORADAS ✅
-// ==============================================
+function jugarJuego(pHold){return Math.random()<pHold;}
+function jugarTieBreak(L,A,firstServer,sup,modelo){
+ const hL=calcularHoldJuego(L,A,sup,modelo),hA=calcularHoldJuego(A,L,sup,modelo);const pServeL=pointFromHold(hL),pServeA=pointFromHold(hA);let l=0,a=0,n=0;
+ while(true){n++;let server;if(n===1)server=firstServer;else server=((Math.floor((n-2)/2)%2===0)?(firstServer==='L'?'A':'L'):firstServer);const pL=server==='L'?pServeL:1-pServeA;if(Math.random()<pL)l++;else a++;if((l>=7||a>=7)&&Math.abs(l-a)>=2)return {ganador:l>a?'L':'A',puntosL:l,puntosA:a};}
+}
+function simularSet(L,A,primerServidor,sup,modelo){
+ let gL=0,gA=0,server=primerServidor;
+ while(true){const pHold=server==='L'?calcularHoldJuego(L,A,sup,modelo):calcularHoldJuego(A,L,sup,modelo);const win=jugarJuego(pHold);if(server==='L'){if(win)gL++;else gA++;}else{if(win)gA++;else gL++;}
+  if((gL>=6||gA>=6)&&Math.abs(gL-gA)>=2)return {ganador:gL>gA?'L':'A',juegosL:gL,juegosA:gA,siguienteServidor:server==='L'?'A':'L'};
+  if(gL===6&&gA===6){const firstTB=server==='L'?'L':'A';const tb=jugarTieBreak(L,A,firstTB,sup,modelo);return {ganador:tb.ganador,juegosL:tb.ganador==='L'?7:6,juegosA:tb.ganador==='A'?7:6,tieBreak:true,tbL:tb.puntosL,tbA:tb.puntosA,siguienteServidor:firstTB==='L'?'A':'L'};}
+  server=server==='L'?'A':'L';
+ }
+}
+function simularPartido(L,A,sup,modelo){let sL=0,sA=0;let server=Math.random()<.5?'L':'A';const sets=[];let totalGames=0;let tieBreaks=0;let firstSetWinner=null;while(sL<2&&sA<2){const set=simularSet(L,A,server,sup,modelo);if(set.ganador==='L')sL++;else sA++;if(firstSetWinner===null)firstSetWinner=set.ganador;totalGames+=set.juegosL+set.juegosA;if(set.tieBreak)tieBreaks++;sets.push(set);server=set.siguienteServidor;}return {setsL:sL,setsA:sA,sets,totalGames,tieBreaks,firstSetWinner};}
+function ejecutarMonteCarlo(L,A,sup,modelo,N=10000){let wL=0,wA=0;const dist={},totalGames={},firstSet={},tieBreak={yes:0,no:0},handicap={L2_5:0,L3_5:0,L4_5:0,A2_5:0,A3_5:0,A4_5:0};for(let i=0;i<N;i++){const r=simularPartido(L,A,sup,modelo);const k=`${r.setsL}-${r.setsA}`;dist[k]=(dist[k]||0)+1;totalGames[r.totalGames]=(totalGames[r.totalGames]||0)+1;firstSet[r.firstSetWinner]=(firstSet[r.firstSetWinner]||0)+1;if(r.tieBreaks)tieBreak.yes++;else tieBreak.no++;const diffGames=r.sets.reduce((z,set)=>z+set.juegosL-set.juegosA,0);if(diffGames>2.5)handicap.L2_5++;if(diffGames>3.5)handicap.L3_5++;if(diffGames>4.5)handicap.L4_5++;if(diffGames<-2.5)handicap.A2_5++;if(diffGames<-3.5)handicap.A3_5++;if(diffGames<-4.5)handicap.A4_5++;if(r.setsL>r.setsA)wL++;else wA++;}return {pL:wL/N,pA:wA/N,wL,wA,dist,totalGames,firstSet,tieBreak,handicap,N};}
+
 function simular(){
- if(!sel.local||!sel.away){alert('Selecciona ambos jugadores');return;}
- const L=sel.local, A=sel.away, sup=document.getElementById('sup').value;
- const cat = document.getElementById('cat').value;
- 
- // Elo base profesional por categoría si el dato falta en la hoja
- const eloDefault = (cat === 'men') ? 1500 : 1350;
- const eL = L.elo ?? eloDefault;
- const eA = A.elo ?? eloDefault;
-
- const sL = L.dura ?? 50, sA = A.dura ?? 50; // (Se usa valor neutro 50 si falta)
- const supL = (sup==='hard')?(L.dura??50):(sup==='clay')?(L.arcilla??50):(L.cesped??50);
- const supA = (sup==='hard')?(A.dura??50):(sup==='clay')?(A.arcilla??50):(A.cesped??50);
- 
- const fL = L.forma ?? 50, fA = A.forma ?? 50;
- const hL = L.hold ?? 50, hA = A.hold ?? 50;
- const rL = L.resto ?? 50, rA = A.resto ?? 50;
-
- // FÓRMULA 1: Probabilidad base por Elo
- const difE = eL - eA;
- let pL = 1 / (1 + Math.pow(10, -difE / 400)); 
-
- // FÓRMULA 2: Ajustes ponderados (en escala decimal)
- const adjSup = (supL - supA) / 200;
- const adjForma = (fL - fA) / 200;
- const adjServicio = ((hL - hA) + (rA - rL)) / 400;
-
- pL += adjSup + adjForma + adjServicio;
-
- // LÍMITES DE SEGURIDAD (5%–95%)
- pL = Math.max(0.05, Math.min(0.95, pL)); 
- const pA = 1 - pL;
-
- // SIMULACIÓN DE PARTIDO — Mejor de 3 sets ✅
- let sL_sets = 0, sA_sets = 0, jL = 0, jA = 0;
- while(sL_sets < 2 && sA_sets < 2){
-  if(Math.random() < pL) jL++; else jA++;
-  if((jL >= 6 || jA >= 6) && Math.abs(jL - jA) >= 2){
-   if(jL > jA) sL_sets++; else sA_sets++; 
-   jL = 0; jA = 0;
-  }
-  if(jL === 6 && jA === 6){ // Tie-break
-   if(Math.random() < pL) sL_sets++; else sA_sets++; 
-   jL = 0; jA = 0;
-  }
- }
- const gan = sL_sets > sA_sets ? L.nombre : A.nombre;
-
- // CÁLCULO DE VALUE BET (Si el usuario ingresa cuotas)
- const cLocal = parseFloat(document.getElementById('cuota-local').value);
- const cAway = parseFloat(document.getElementById('cuota-away').value);
- let valueHtml = '';
-
- if(!isNaN(cLocal) || !isNaN(cesped = cAway)){
-  let evLocal = !isNaN(cLocal) ? (pL * cLocal - 1) * 100 : null;
-  let evAway = !isNaN(cAway) ? (pA * cAway - 1) * 100 : null;
-  
-  valueHtml = `<div class="value-box"><strong>📈 Análisis de Valor (Value Bet):</strong><br>`;
-  if(evLocal !== null){
-   valueHtml += `• Local (${cLocal}): EV = <strong>${evLocal.toFixed(1)}%</strong> ${evLocal > 0 ? '✅ ¡Hay Valor!' : '❌ Sin valor'}<br>`;
-  }
-  if(evAway !== null){
-   valueHtml += `• Visitante (${cAway}): EV = <strong>${evAway.toFixed(1)}%</strong> ${evAway > 0 ? '✅ ¡Hay Valor!' : '❌ Sin valor'}`;
-  }
-  valueHtml += `</div>`;
- }
-
- // MOSTRAR RESULTADOS
- document.getElementById('r-l').textContent = L.nombre;
- document.getElementById('r-a').textContent = A.nombre;
- document.getElementById('r-sc').textContent = `${sL_sets} - ${sA_sets}`;
- document.getElementById('p-l').textContent = Math.round(pL * 100) + '%';
- document.getElementById('p-a').textContent = Math.round(pA * 100) + '%';
- document.getElementById('b-l').style.width = `${pL * 100}%`;
- document.getElementById('b-a').style.width = `${pA * 100}%`;
- 
- document.getElementById('det').innerHTML = `
-  <strong>📐 Cálculos aplicados:</strong><br>
-  Elo (${eL} vs ${eA}) — Dif: ${difE>0?'+':''}${difE} → Base Elo: ${Math.round((1/(1+Math.pow(10,-difE/400)))*100)}%<br>
-  Ajuste superficie (${sup}): ${(adjSup*100).toFixed(1)}% (${supL}% vs ${supA}%)<br>
-  Ajuste forma reciente: ${(adjForma*100).toFixed(1)}% (${fL}% vs ${fA}%)<br>
-  Ajuste saque/retorno: ${(adjServicio*100).toFixed(1)}%<br>
-  <strong>Probabilidad final: ${Math.round(pL*100)}% vs ${Math.round(pA*100)}%</strong><br>
-  <strong>🏆 Ganador simulado: ${gan}</strong>
- `;
- 
- document.getElementById('value-container').innerHTML = valueHtml;
- document.getElementById('res').classList.remove('hidden');
+ if(!sel.local||!sel.away){alert('Selecciona ambos jugadores.');return;}
+ const L=sel.local,A=sel.away,sup=$('sup').value;const modelo=calcularModelo(L,A,sup);modelo.L=L;modelo.A=A;modelo.surfL=superficie(L,sup);modelo.surfA=superficie(A,sup);
+ const mc=ejecutarMonteCarlo(L,A,sup,modelo,10000);const pL=mc.pL,pA=mc.pA;const partido=simularPartido(L,A,sup,modelo);const ganador=partido.setsL>partido.setsA?L.nombre:A.nombre;
+ $('r-l').textContent=L.nombre;$('r-a').textContent=A.nombre;$('r-sc').textContent=`${partido.setsL} - ${partido.setsA}`;$('p-l').textContent=Math.round(pL*100)+'%';$('p-a').textContent=Math.round(pA*100)+'%';$('b-l').style.width=(pL*100)+'%';$('b-a').style.width=(pA*100)+'%';
+ const dist=Object.entries(mc.dist).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([k,v])=>`${k}: ${((v/mc.N)*100).toFixed(1)}%`).join(' · ');
+ $('det').innerHTML=`<strong>📐 Modelo integrado</strong><br>Elo: ${Math.round(modelo.eloL)} vs ${Math.round(modelo.eloA)} · Δ ${modelo.eloL-modelo.eloA>0?'+':''}${Math.round(modelo.eloL-modelo.eloA)}<br>Superficie: ${modelo.surfL.toFixed(1)}% vs ${modelo.surfA.toFixed(1)}% · Forma: ${modelo.formL.toFixed(1)}% vs ${modelo.formA.toFixed(1)}%<br>Servicio: ${modelo.serviceL.toFixed(1)}% vs ${modelo.serviceA.toFixed(1)}% · Hold: ${modelo.holdL.toFixed(1)}% vs ${modelo.holdA.toFixed(1)}%<br>Break: ${modelo.brL.toFixed(1)}% vs ${modelo.brA.toFixed(1)}% · Resto: ${modelo.retL.toFixed(1)}% vs ${modelo.retA.toFixed(1)}%<br><strong>Monte Carlo: ${Math.round(pL*100)}% vs ${Math.round(pA*100)}%</strong> con ${mc.N.toLocaleString()} partidos<br>Distribución principal: ${dist}`;
+ renderBettingReport(L,A,mc);
+ $('stats-match').innerHTML=`<div class="stat-card"><small>Ganador simulado</small><strong>${escapeHTML(ganador)}</strong></div><div class="stat-card"><small>Superficie</small><strong>${nombreSuperficie(sup)}</strong></div><div class="stat-card"><small>Monte Carlo</small><strong>${mc.N.toLocaleString()}</strong></div><div class="stat-card"><small>Ranking Local</small><strong>${L.ranking!==null?'#'+L.ranking:'N/D'}</strong></div><div class="stat-card"><small>Ranking Visitante</small><strong>${A.ranking!==null?'#'+A.ranking:'N/D'}</strong></div><div class="stat-card"><small>Calidad datos</small><strong>${Math.round(((completeness(L)+completeness(A))/22)*100)}%</strong></div>`;
+ calcularValueBet(pL,pA);$('res').classList.remove('hidden');
 }
+
+function probWilson(k,n){if(!n)return {p:0,lo:0,hi:0};const z=1.96,p=k/n,den=1+z*z/n,center=(p+z*z/(2*n))/den,half=z*Math.sqrt((p*(1-p)+z*z/(4*n))/n)/den;return {p,lo:Math.max(0,center-half),hi:Math.min(1,center+half)};}
+function betClass(p){if(p>=.70)return 'green';if(p>=.55)return 'yellow';return 'red';}
+function betLabel(p){if(p>=.70)return 'VERDE · alta';if(p>=.55)return 'AMARILLO · media';return 'ROJO · baja';}
+function fairOdds(p){return p>0?1/p:Infinity;}
+function betRow(nombre,k,n,nota=''){const w=probWilson(k,n),cls=betClass(w.p);return `<tr><td>${nombre}</td><td class="bet-${cls}">${(w.p*100).toFixed(1)}%</td><td>${fairOdds(w.p).toFixed(2)}</td><td><span class="bet-badge ${cls}">${betLabel(w.p)}</span></td><td class="mini">IC95% ${(w.lo*100).toFixed(1)}–${(w.hi*100).toFixed(1)}%${nota?` · ${nota}`:''}</td></tr>`;}
+function renderBettingReport(L,A,mc){const n=mc.N;const rows=[];rows.push(betRow(`${L.nombre} gana`,mc.wL,n));rows.push(betRow(`${A.nombre} gana`,mc.wA,n));const p20=mc.dist['2-0']||0,p21=mc.dist['2-1']||0,p12=mc.dist['1-2']||0,p02=mc.dist['0-2']||0;rows.push(betRow(`${L.nombre} 2-0`,p20,n));rows.push(betRow(`${L.nombre} 2-1`,p21,n));rows.push(betRow(`${A.nombre} 2-1`,p12,n));rows.push(betRow(`${A.nombre} 2-0`,p02,n));const over25=Object.entries(mc.totalGames).reduce((s,[g,c])=>s+(Number(g)>25.5?c:0),0);const over225=Object.entries(mc.totalGames).reduce((s,[g,c])=>s+(Number(g)>22.5?c:0),0);const over215=Object.entries(mc.totalGames).reduce((s,[g,c])=>s+(Number(g)>21.5?c:0),0);const tb=mc.tieBreak.yes;rows.push(betRow('Más de 21.5 juegos',over215,n));rows.push(betRow('Más de 22.5 juegos',over225,n));rows.push(betRow('Más de 25.5 juegos',over25,n));rows.push(betRow('Habrá tie-break',tb,n));rows.push(betRow('1er set: '+L.nombre,mc.firstSet.L||0,n));rows.push(betRow('1er set: '+A.nombre,mc.firstSet.A||0,n));rows.push(betRow(`${L.nombre} -2.5 juegos`,mc.handicap.L2_5,n));rows.push(betRow(`${A.nombre} -2.5 juegos`,mc.handicap.A2_5,n));const best=[['Gana '+L.nombre,mc.wL],['Gana '+A.nombre,mc.wA],['Más de 21.5 juegos',over215],['Más de 22.5 juegos',over225],['1er set '+L.nombre,mc.firstSet.L||0],['1er set '+A.nombre,mc.firstSet.A||0],['Tie-break sí',tb]].sort((a,b)=>b[1]-a[1])[0];const top=best?`<div class="bet-card best-bet"><strong>⭐ Resultado más probable</strong><span>${best[0]} — ${(best[1]/n*100).toFixed(1)}%</span><div class="fair">Cuota justa: ${fairOdds(best[1]/n).toFixed(2)}</div></div>`:'';document.getElementById('betting-container').innerHTML=`<div class="bet-title">🚦 Semáforo de apuestas</div><div class="bet-note">Verde = alta probabilidad, amarillo = probabilidad intermedia, rojo = baja. La <strong>cuota justa</strong> es 1/probabilidad. Para hablar de valor real, compara la cuota de la casa con esa cuota justa; una probabilidad alta por sí sola no garantiza una apuesta rentable.</div>${top}<div style="overflow:auto;margin-top:10px"><table class="bet-table"><thead><tr><th>Mercado</th><th>Prob.</th><th>Cuota justa</th><th>Semáforo</th><th>Precisión MC</th></tr></thead><tbody>${rows.join('')}</tbody></table></div>`;document.getElementById('betting-container').classList.remove('hidden');}
+
+function nombreSuperficie(s){return ({hard:'Pista Dura',clay:'Arcilla',grass:'Césped',indoor:'Indoor'})[s]||s;}
+function calcularValueBet(pL,pA){const cL=parseFloat($('cuota-local').value),cA=parseFloat($('cuota-away').value);let h='';if(Number.isFinite(cL)&&cL>1){const ev=(pL*cL-1)*100;h+=`<div class="value-box"><strong>📈 Value Bet</strong><br>• Local (${cL.toFixed(2)}): implícita ${(100/cL).toFixed(1)}% · EV <strong>${ev.toFixed(1)}%</strong> ${ev>0?'✅ Hay valor':'❌ Sin valor'}`;if(Number.isFinite(cA)&&cA>1){const evA=(pA*cA-1)*100;h+=`<br>• Visitante (${cA.toFixed(2)}): implícita ${(100/cA).toFixed(1)}% · EV <strong>${evA.toFixed(1)}%</strong> ${evA>0?'✅ Hay valor':'❌ Sin valor'}`;}h+='</div>';}else if(Number.isFinite(cA)&&cA>1){const evA=(pA*cA-1)*100;h=`<div class="value-box"><strong>📈 Value Bet</strong><br>• Visitante (${cA.toFixed(2)}): implícita ${(100/cA).toFixed(1)}% · EV <strong>${evA.toFixed(1)}%</strong> ${evA>0?'✅ Hay valor':'❌ Sin valor'}</div>`;}$('value-container').innerHTML=h;}
+
+$('cat').addEventListener('change',cambiarCat);$('sup').addEventListener('change',()=>{if(sel.local&&sel.away)$('res').classList.add('hidden');});$('simular').addEventListener('click',simular);$('recargar').addEventListener('click',iniciar);
+$('local-busca').addEventListener('input',()=>buscar('local'));$('away-busca').addEventListener('input',()=>buscar('away'));
+['local','away'].forEach(lado=>$(lado+'-lista').addEventListener('click',e=>{const item=e.target.closest('.autocomplete-item[data-index]');if(item)elegir(lado,item.dataset.index);}));
+document.addEventListener('click',e=>{if(!e.target.closest('.field'))document.querySelectorAll('.autocomplete-list').forEach(x=>x.classList.add('hidden'));});
+window.addEventListener('load',iniciar);
 </script>
 </body>
 </html>
